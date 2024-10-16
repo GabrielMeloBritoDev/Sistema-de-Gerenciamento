@@ -9,19 +9,20 @@ public class ClienteModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ClienteId;
+    private Long id;
+
     private String nome;
     private String endereco;
     private String numero;
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
-    private List<CompraModel> compras;
 
-    public Long getClienteId() {
-        return ClienteId;
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<CompraModel> compras;
+    public Long getId() {
+        return id;
     }
 
-    public void setClienteId(Long clienteId) {
-        ClienteId = clienteId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {

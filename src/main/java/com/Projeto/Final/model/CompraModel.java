@@ -23,15 +23,15 @@ public class CompraModel {
     private String tipo; // Fiada ou não
 
     @ManyToOne
-    @JoinColumn(name="cliente_id")
-    private ClienteModel clienteModel;
+    @JoinColumn(name = "cliente_id")
+    private ClienteModel cliente;
 
     public ClienteModel getCliente() {
-        return clienteModel;
+        return cliente;
     }
 
     public void setCliente(ClienteModel cliente) {
-        this.clienteModel = cliente;
+        this.cliente = cliente;
     }
 
     public Long getCompraId() {

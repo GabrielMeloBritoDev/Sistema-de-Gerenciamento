@@ -11,15 +11,19 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UsuarioService implements UserDetailsService {
+
+
     @Autowired
     private UsuarioRepository usuarioRepository;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private  PasswordEncoder passwordEncoder;
 
 
     @Override
@@ -45,6 +49,7 @@ public class UsuarioService implements UserDetailsService {
         return usuarioRepository.findById(usuarioId);
     }
 
+
     public ResponseEntity<Object> deletarUsuario(Long usuarioId) {
         return usuarioRepository.findById(usuarioId)
                 .map(usuario -> {
@@ -53,4 +58,5 @@ public class UsuarioService implements UserDetailsService {
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
+
 }

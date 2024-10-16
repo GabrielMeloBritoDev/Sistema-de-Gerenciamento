@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface CompraRepository  extends JpaRepository<CompraModel, Long> {
-    List<CompraModel> findByClienteIdAndTipoAndStatus(Long clienteId, String tipo, String status);
+    List<CompraModel> findByCliente_IdAndTipoAndStatus(Long id, String tipo, String status);
     List<CompraModel> findAllByDataCompraBetween(LocalDate inicio, LocalDate fim);
 }
 
